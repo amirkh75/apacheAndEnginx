@@ -1,0 +1,14 @@
+server {
+    root /usr/share/nginx/sample.org;
+    index index.php index.html index.htm;
+
+    server_name sample.org www.sample.org;
+    location / {
+        try_files $uri $uri/ /index.php;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+        include snippets/fastcgi-php.conf;
+    }
+}

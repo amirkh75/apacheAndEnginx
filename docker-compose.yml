@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: myWebAPP
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: "always"
+    ports:
+      # - 8080:8080
+      - 80:80
+      - 443:443
